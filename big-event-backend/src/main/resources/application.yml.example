@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: dev
+
+# 注意：此文件仅作为示例
+# 实际配置请使用 application-dev.yml 或 application-pro.yml
+# 并确保敏感信息（密码、密钥）使用环境变量
+

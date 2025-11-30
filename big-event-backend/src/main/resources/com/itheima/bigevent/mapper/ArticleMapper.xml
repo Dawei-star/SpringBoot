@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.bigevent.mapper.ArticleMapper">
+    <!--动态SQL
+    - 文章列表查询（支持关键词搜索）
+    - 优化：只查询必要字段，添加索引提示-->
+    <select id="list" resultType="com.itheima.bigevent.pojo.Article"> 
+        select id, title, content, cover_img, state, category_id, create_user, create_time, update_time 
+        from article 
+        <where>
+            <if test="categoryId!=null"> category_id=#{categoryId} </if>
+            <if test="state!=null"> and state=#{state} </if>
+            <if test="id != null"> and create_user=#{id} </if>
+            <if test="keyword != null and keyword != ''"> 
+                and (title like concat('%', #{keyword}, '%') or content like concat('%', #{keyword}, '%')) 
+            </if>
+        </where> 
+        order by create_time desc 
+    </select>
+
+    <!--搜索文章（公开接口，只搜索已发布文章）
+    - 优化：只查询必要字段，提高查询性能-->
+    <select id="search" resultType="com.itheima.bigevent.pojo.Article"> 
+        select id, title, content, cover_img, state, category_id, create_user, create_time, update_time 
+        from article 
+        <where>
+            state = '已发布' 
+            <if test="keyword != null and keyword != ''"> 
+                and (title like concat('%', #{keyword}, '%') or content like concat('%', #{keyword}, '%')) 
+            </if>
+            <if test="categoryId != null"> 
+                and category_id = #{categoryId} 
+            </if>
+        </where>
+        order by create_time desc 
+    </select>
+
+</mapper>

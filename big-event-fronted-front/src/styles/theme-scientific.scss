@@ -1,0 +1,102 @@
+/* Scientific / Futuristic Theme */
+:root {
+  /* Core Colors */
+  --sci-primary: #00f3ff;
+  /* Cyan Neon */
+  --sci-secondary: #7000ff;
+  /* Deep Purple Neon */
+  --sci-accent: #ff0055;
+  /* Pink Neon */
+  --sci-bg-dark: #050510;
+  /* Deep Space Black */
+  --sci-bg-panel: rgba(10, 15, 30, 0.7);
+  /* Glass Panel */
+  --sci-text-main: #e0e0ff;
+  --sci-text-dim: #8080a0;
+
+  /* Effects */
+  --sci-glow-primary: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+  --sci-glow-secondary: 0 0 10px rgba(112, 0, 255, 0.5);
+  --sci-border: 1px solid rgba(0, 243, 255, 0.2);
+  --sci-glass: blur(12px) saturate(180%);
+
+  /* Fonts */
+  --sci-font-heading: 'Orbitron', 'Rajdhani', sans-serif;
+  --sci-font-body: 'Exo 2', 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--sci-bg-dark);
+  color: var(--sci-text-main);
+  font-family: var(--sci-font-body);
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.1), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.1), transparent 25%);
+  background-attachment: fixed;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sci-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sci-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sci-primary);
+  box-shadow: var(--sci-glow-primary);
+}
+
+/* Utility Classes */
+.sci-card {
+  background: var(--sci-bg-panel);
+  backdrop-filter: var(--sci-glass);
+  border: var(--sci-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.sci-card:hover {
+  border-color: var(--sci-primary);
+  box-shadow: var(--sci-glow-primary);
+  transform: translateY(-2px);
+}
+
+.sci-btn {
+  background: transparent;
+  border: 1px solid var(--sci-primary);
+  color: var(--sci-primary);
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-family: var(--sci-font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.sci-btn:hover {
+  background: var(--sci-primary);
+  color: var(--sci-bg-dark);
+  box-shadow: var(--sci-glow-primary);
+}
+
+.sci-heading {
+  font-family: var(--sci-font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--sci-primary), var(--sci-text-main));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,69 @@
+# 根目录 .gitignore
+
+# 敏感配置文件（包含密钥和密码）
+**/application-pro.yml
+**/application-dev.yml
+**/application-test.yml
+**/.env
+**/.env.local
+**/.env.production
+**/.env.development
+
+# 但保留示例文件
+!**/application.yml.example
+!**/.env.example
+
+# IDE配置
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+
+# 编译输出
+**/target/
+**/dist/
+**/build/
+**/out/
+
+# 依赖目录
+**/node_modules/
+**/.pnp/
+**/.pnp.js
+
+# 测试覆盖率
+**/coverage/
+**/.nyc_output/
+
+# 环境变量文件（保留示例文件）
+!**/.env.example
+
+# 文档中的敏感信息（可选，如果文档包含敏感信息）
+# docs/secret/
+
+# Maven
+**/.mvn/wrapper/maven-wrapper.jar
+**/.mvn/wrapper/maven-wrapper.properties
+
+# Spring Boot
+**/application-local.yml
+
+# 其他
+**/package-lock.json
+**/yarn.lock
+
